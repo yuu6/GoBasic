@@ -1,16 +1,38 @@
+http
+----
+借助于curl
+```$xslt
+curl -s -o /dev/null -v  www.baidu.com
+```
+以字符>打头的描述的是客户端发出的请求
+以字符<打头的描述的是服务器发出的响应
+
+```$xslt
 package main
 
-import (
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-)
+import "net/http"
 
 func main() {
 	http.HandleFunc("/", helloworld)
 	http.ListenAndServe(":8000", nil)
 }
+
+func helloworld(writer http.ResponseWriter, request *http.Request) {
+	if request.URL.Path != "/" {
+		http.NotFound(writer, request)
+		return
+	}
+	writer.Write([]byte("Hello World!"))
+}
+
+```
+#### HandleFunc(path, function)
+> 用于实现路由功能
+#### ListenAndServe(url, error)
+#### NotFound
+> 返回404
+
+```$xslt
 
 func helloworld(writer http.ResponseWriter, request *http.Request) {
 	if request.URL.Path != "/" {
@@ -35,3 +57,7 @@ func helloworld(writer http.ResponseWriter, request *http.Request) {
 		writer.Write([]byte(http.StatusText(http.StatusNotImplemented)))
 	}
 }
+
+```
+
+

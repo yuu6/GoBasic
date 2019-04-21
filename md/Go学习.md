@@ -1,7 +1,6 @@
 # Go学习
 
 * [Go基础](#GO-BASIC)
-* [Go练习](#GO-EXERCISE)
 
 ### <a name="GO-BASIC"></a>Go基础知识
 
@@ -82,11 +81,6 @@ scores := make([]int, 10)
 + Map
 
 + Error Handling 错误处理
-> Go 处理错误是通过返回值而不是通过exception
-
-
-
-### <a name="GO-EXERCISE"></a>Go练习
 
 
 
