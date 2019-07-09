@@ -5,10 +5,10 @@ import (
 	"os"
 )
 
-func main(){
+func main() {
 	// 第一个参数是当前文件的路径
 	var s, sep string
-	for i :=0; i < len(os.Args); i++{
+	for i := 0; i < len(os.Args); i++ {
 		s += sep + os.Args[i]
 		sep = " "
 	}
